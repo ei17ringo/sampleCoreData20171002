@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1903A4981FC6591B00F15C92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1903A4971FC6591B00F15C92 /* DetailViewController.swift */; };
 		19160FF51FC262FF00EA3E38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19160FF41FC262FF00EA3E38 /* AppDelegate.swift */; };
 		19160FF71FC262FF00EA3E38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19160FF61FC262FF00EA3E38 /* ViewController.swift */; };
 		19160FFA1FC262FF00EA3E38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19160FF81FC262FF00EA3E38 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1903A4971FC6591B00F15C92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		19160FF11FC262FF00EA3E38 /* sampleCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19160FF41FC262FF00EA3E38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19160FF61FC262FF00EA3E38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				191610031FC262FF00EA3E38 /* Info.plist */,
 				19160FFB1FC262FF00EA3E38 /* sampleCoreData.xcdatamodeld */,
 				191610A41FC5088100EA3E38 /* customCell.swift */,
+				1903A4971FC6591B00F15C92 /* DetailViewController.swift */,
 			);
 			path = sampleCoreData;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				19160FF51FC262FF00EA3E38 /* AppDelegate.swift in Sources */,
 				191610281FC265F200EA3E38 /* ToDo+CoreDataProperties.swift in Sources */,
 				19160FFD1FC262FF00EA3E38 /* sampleCoreData.xcdatamodeld in Sources */,
+				1903A4981FC6591B00F15C92 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

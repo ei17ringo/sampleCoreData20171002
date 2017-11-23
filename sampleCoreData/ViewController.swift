@@ -19,6 +19,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //TODO（内容）を格納する配列 TableView 表示用
     var contentTitle:[NSDictionary] = []
     
+    var selectedSaveDate:Date = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -181,6 +183,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.saveDateLabel.text = df.string(from: dic["saveDate"] as! Date)
         //文字を設定したセルを返す
         return cell
+    }
+    
+    //セルが選択されたとき
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        var dic = contentTitle[indexPath.row] as! NSDictionary
+        
+        selectedSaveDate = dic["saveDate"] as! Date
+        
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
+    
+    //セグエを使って画面遷移するとき発動
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var dvc:DetailViewController = segue.destination as! DetailViewController
+        
+        dvc.selectedSaveDate = selectedSaveDate
     }
     
     
