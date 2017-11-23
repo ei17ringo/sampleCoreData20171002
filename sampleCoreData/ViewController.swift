@@ -17,7 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var todoTableView: UITableView!
     
     //TODO（内容）を格納する配列 TableView 表示用
-    var contentTitle:[String] = []
+    var contentTitle:[NSDictionary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
                 print("title:\(title!) saveDate:\(saveDate!)")
                 
-                contentTitle.append(title!)
+                var dic = ["title":title,"saveDate":saveDate] as [String : Any]
+                
+                contentTitle.append(dic as NSDictionary)
                 
             }
         
@@ -146,18 +148,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     // 行数の決定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentTitle.count
+        
+//        if tableView.tag == 1 {
+////            return 10
+//        }else{
+            return contentTitle.count
+//        }
     }
     
     //リストに表示する文字列を決定し、表示
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //文字列を表示するセルの取得（セルの再利用）
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! customCell
         
         //表示したい文字の設定
         //        cell.textLabel?.text = "\(indexPath.row)行目"
-        cell.textLabel?.text = contentTitle[indexPath.row]
+//        cell.textLabel?.text = contentTitle[indexPath.row]
         
+        var dic = contentTitle[indexPath.row] as! NSDictionary
+        cell.todoLabel.text = dic["title"] as! String
+        
+        //画像
+        cell.statusImageView.image = UIImage(named:"sample.png")
+        
+        //日付を文字列に変換
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        
+        //時差補正（日本時間に変更）
+        df.locale = NSLocale(localeIdentifier: "ja_JP") as! Locale!
+        
+        cell.saveDateLabel.text = df.string(from: dic["saveDate"] as! Date)
         //文字を設定したセルを返す
         return cell
     }
